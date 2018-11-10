@@ -65,7 +65,7 @@ class SearchInput extends BaseElement {
         type="text"
         class="input"
         onkeyup=${this.handleKeyUp}
-        placeholder=${this.placeholderWord}
+        placeholder=${`Type something. Maybe, ${this.placeholderWord}?`}
       ></input>
     `;
   }

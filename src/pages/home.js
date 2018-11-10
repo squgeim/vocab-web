@@ -29,10 +29,10 @@ class Home extends BaseElement {
           display: flex;
           flex-direction: column;
           align-items: center;
+          margin: 20px 0;
         }
       </style>
       <div class="wrapper">
-        <h1>Vocab!</h1>
         <v-search-input
           name="text"
           handleType=${this.search}
