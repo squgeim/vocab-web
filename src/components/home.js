@@ -4,7 +4,7 @@ import { redirectTo } from '../utils/history.js';
 class Home extends BaseElement {
   goSomewhere() {
     redirectTo('/jpt');
-  }  
+  }
 
   render() {
     return this.html`

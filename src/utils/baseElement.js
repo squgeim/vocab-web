@@ -11,30 +11,30 @@ class BaseElement extends HTMLElement {
     this.render();
 
     this._subscriptions.forEach((cb, model) => {
-        model.subscribe(cb);
+      model.subscribe(cb);
     });
   }
 
   disconnectedCallback() {
     this._subscriptions.forEach((cb, model) => {
-        model.unsubscribe(cb);
+      model.unsubscribe(cb);
     });
   }
 
   subscribe(model, callback) {
     if (!(model instanceof Model)) {
-      throw new Error("model should be an implementation of Model.");
+      throw new Error('model should be an implementation of Model.');
     }
 
-    if (typeof callback !== "function") {
-      throw new Error("Callback should be a function");
+    if (typeof callback !== 'function') {
+      throw new Error('Callback should be a function');
     }
 
     this._subscriptions.set(model, callback);
   }
 
   render() {
-    console.warn("You are supposed to override the render method!");
+    console.warn('You are supposed to override the render method!');
   }
 }
 

@@ -1,29 +1,29 @@
 class Model {
-    constructor() {
-        this._subscribers = new Set();
-        this.subscribe = this.subscribe.bind(this);
-        this.notifySubscribers = this.notifySubscribers.bind(this);
+  constructor() {
+    this._subscribers = new Set();
+    this.subscribe = this.subscribe.bind(this);
+    this.notifySubscribers = this.notifySubscribers.bind(this);
+  }
+
+  subscribe(cb) {
+    if (typeof cb !== 'function') {
+      throw new Error('Callback needs to be a function.');
     }
 
-    subscribe(cb) {
-        if (typeof cb !== 'function') {
-            throw new Error('Callback needs to be a function.');
-        }
+    return this._subscribers.add(cb);
+  }
 
-        return this._subscribers.add(cb);
+  unsubscribe(cb) {
+    if (typeof cb !== 'function') {
+      throw new Error('Callback needs to be a function.');
     }
 
-    unsubscribe(cb) {
-        if (typeof cb !== 'function') {
-            throw new Error('Callback needs to be a function.');
-        }
+    return this._subscribers.delete(cb);
+  }
 
-        return this._subscribers.delete(cb);
-    }
-
-    notifySubscribers() {
-        this._subscribers.forEach(cb => cb(this));
-    }
+  notifySubscribers() {
+    this._subscribers.forEach(cb => cb(this));
+  }
 }
 
 export default Model;
