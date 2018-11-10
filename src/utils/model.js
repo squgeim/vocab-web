@@ -1,8 +1,30 @@
 class Model {
-  constructor() {
+  constructor(value) {
     this._subscribers = new Set();
     this.subscribe = this.subscribe.bind(this);
     this.notifySubscribers = this.notifySubscribers.bind(this);
+
+    if (value !== undefined) {
+      this._value = value;
+      this._hasValue = true;
+    }
+  }
+
+  set value(v) {
+    if (!this._hasValue) {
+      throw new Error();
+    }
+
+    this._value = v;
+    this.notifySubscribers();
+  }
+
+  get value() {
+    if (!this._hasValue) {
+      throw new Error();
+    }
+
+    return this._value;
   }
 
   subscribe(cb) {
