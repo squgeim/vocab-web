@@ -13,6 +13,7 @@ class VocabApp extends BaseElement {
   get page() {
     switch (History.pageName) {
       case 'index':
+      case 'vocab-web':
         this.html`<page-home></page-home>`;
         break;
       default:
