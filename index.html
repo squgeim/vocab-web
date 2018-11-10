@@ -14,5 +14,18 @@
 <body>
     <vocab-app></vocab-app>
     <script type="module" src="./src/index.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator
+          .serviceWorker
+          .register('src/sw.js')
+          .catch(err => {
+            console.warn(
+              'Could not register ServiceWorker. The app will not work offline.'
+            );
+            console.error(err);
+          });
+      }
+    </script>
 </body>
 </html>
