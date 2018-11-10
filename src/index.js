@@ -13,14 +13,16 @@ class VocabApp extends BaseElement {
   get page() {
     switch (History.pageName) {
       case 'index':
-        return this.html`<page-home></page-home>`;
+        this.html`<page-home></page-home>`;
+        break;
       default:
-        return this.html`<div>404!</div>`;
+        this.html`<div>404!</div>`;
+        break;
     }
   }
 
   render() {
-    return this.page;
+    this.page;
   }
 }
 

@@ -40,7 +40,7 @@ class SearchInput extends BaseElement {
   }
 
   render() {
-    return this.html`
+    this.html`
       <style>
         :host {
           display: block;

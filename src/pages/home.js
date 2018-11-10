@@ -18,7 +18,7 @@ class Home extends BaseElement {
   }
 
   render() {
-    return this.html`
+    this.html`
       <style>
         .wrapper {
           display: flex;
