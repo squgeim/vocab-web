@@ -1,22 +1,27 @@
 import Model from './model.js';
 
 class BaseElement extends HTMLElement {
-  constructor(...args) {
-    super(...args);
-    this._subscriptions = new Map();
-    this.html = hyperHTML.bind(this);
+  get subscriptions() {
+    return this._subscriptions || (this._subscriptions = new Map());
+  }
+
+  get html() {
+    return (
+      this._html ||
+      (this._html = hyperHTML.bind(this.attachShadow({ mode: 'open' })))
+    );
   }
 
   connectedCallback() {
     this.render();
 
-    this._subscriptions.forEach((cb, model) => {
+    this.subscriptions.forEach((cb, model) => {
       model.subscribe(cb);
     });
   }
 
   disconnectedCallback() {
-    this._subscriptions.forEach((cb, model) => {
+    this.subscriptions.forEach((cb, model) => {
       model.unsubscribe(cb);
     });
   }
@@ -30,7 +35,7 @@ class BaseElement extends HTMLElement {
       throw new Error('Callback should be a function');
     }
 
-    this._subscriptions.set(model, callback);
+    this.subscriptions.set(model, callback);
   }
 
   render() {
