@@ -28,7 +28,7 @@ class Dictionary extends Model {
   }
 
   setActiveQuery(word) {
-    this._activeQuery = word;
+    this._activeQuery = word.toLowerCase();
     this.notifySubscribers();
   }
 
@@ -55,7 +55,7 @@ class Dictionary extends Model {
   get list() {
     return this._activeQuery
       ? this.syncDictionary.filter(
-          w => w.word.toLowerCase() === this._activeQuery
+          w => w.word.toLowerCase().indexOf(this._activeQuery) > -1
         )
       : this.syncDictionary;
   }
