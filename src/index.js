@@ -1,6 +1,6 @@
 import BaseElement from './utils/baseElement.js';
 import History from './models/history.js';
-import './components/home.js';
+import './pages/home.js';
 
 class VocabApp extends BaseElement {
   constructor(...args) {
@@ -13,7 +13,7 @@ class VocabApp extends BaseElement {
   get page() {
     switch (History.pageName) {
       case 'index':
-        return this.html`<v-home></v-home>`;
+        return this.html`<page-home></page-home>`;
       default:
         return this.html`<div>404!</div>`;
     }
