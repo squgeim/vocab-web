@@ -29,6 +29,7 @@ class SearchInput extends BaseElement {
   handleKeyUp(e) {
     const value = e.target.value;
     if (e.key === "Enter") {
+      e.target.value = '';
       return this._handleReturn(value);
     }
 

@@ -19,6 +19,7 @@ class Home extends BaseElement {
 
   handleReturn(value) {
     Dictionary.addWord(value);
+    Dictionary.setActiveQuery();
   }
 
   render() {
