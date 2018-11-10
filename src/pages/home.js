@@ -1,20 +1,24 @@
 import BaseElement from '../utils/baseElement.js';
 
+import Dictionary from '../models/dictionary.js';
+
 import '../components/searchInput/index.js';
+import '../components/wordList/index.js';
 
 class Home extends BaseElement {
   constructor() {
     super();
 
     this.search = this.search.bind(this);
+    this.subscribe(Dictionary, this.render.bind(this));
   }
 
   search(value) {
-    console.log(value);
+    Dictionary.setActiveQuery(value);
   }
 
   handleReturn(value) {
-    console.log('enter!', value);
+    Dictionary.addWord(value);
   }
 
   render() {
@@ -33,6 +37,7 @@ class Home extends BaseElement {
           handleType=${this.search}
           handleReturn=${this.handleReturn}
         ></v-search-input>
+        <v-word-list words=${Dictionary.list}></v-word-list>
       </div>
     `;
   }
