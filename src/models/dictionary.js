@@ -13,7 +13,8 @@ class Dictionary extends Model {
   initList() {
     this._isFetchingList = true;
     this._hasErrored = false;
-    this.dictionary = this.storage.getItem('dictionary')
+    this.dictionary = this.storage
+      .getItem('dictionary')
       .then(list => {
         this.syncDictionary = list;
       })
@@ -33,14 +34,16 @@ class Dictionary extends Model {
   }
 
   addWord(word) {
-    this.storage.setItem('dictionary', [
-      ...this.syncDictionary,
-      {
-        word: word
-      }
-    ]).then(dict => {
-      this.syncDictionary = dict;
-    });
+    this.storage
+      .setItem('dictionary', [
+        ...this.syncDictionary,
+        {
+          word: word,
+        },
+      ])
+      .then(dict => {
+        this.syncDictionary = dict;
+      });
   }
 
   set syncDictionary(val) {

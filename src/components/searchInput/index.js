@@ -2,12 +2,12 @@ import BaseElement from '../../utils/baseElement.js';
 
 import { getRandomInt } from '../../utils/misc.js';
 
- const words = [
-  "incessant",
-  "pertinent",
-  "exorbitant",
-  "serendipitous",
-  "apposite"
+const words = [
+  'incessant',
+  'pertinent',
+  'exorbitant',
+  'serendipitous',
+  'apposite',
 ];
 
 class SearchInput extends BaseElement {
@@ -28,7 +28,7 @@ class SearchInput extends BaseElement {
 
   handleKeyUp(e) {
     const value = e.target.value;
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       e.target.value = '';
       return this._handleReturn(value);
     }
