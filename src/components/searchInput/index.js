@@ -1,27 +1,41 @@
 import BaseElement from '../../utils/baseElement.js';
-import Model from '../../utils/model.js';
 
 import { getRandomInt } from '../../utils/misc.js';
+
+ const words = [
+  "incessant",
+  "pertinent",
+  "exorbitant",
+  "serendipitous",
+  "apposite"
+];
 
 class SearchInput extends BaseElement {
   constructor() {
     super();
 
-    this.handleType = this.handleType.bind(this);
+    this._callbacks = [];
+    this.handleKeyUp = this.handleKeyUp.bind(this);
   }
 
-  handleType(e) {
+  set handleType(fn) {
+    this._handleType = fn;
+  }
+
+  set handleReturn(fn) {
+    this._handleReturn = fn;
+  }
+
+  handleKeyUp(e) {
+    const value = e.target.value;
+    if (e.key === "Enter") {
+      return this._handleReturn(value);
+    }
+
+    return this._handleType(value);
   }
 
   get placeholderWord() {
-    const words = [
-      "incessant",
-      "pertinent",
-      "exorbitant",
-      "serendipitous",
-      "apposite"
-    ];
-    
     return words[getRandomInt(0, words.length)];
   }
 
@@ -49,7 +63,7 @@ class SearchInput extends BaseElement {
       <input
         type="text"
         class="input"
-        onkeyup=${this.handleType}
+        onkeyup=${this.handleKeyUp}
         placeholder=${this.placeholderWord}
       ></input>
     `;

@@ -1,11 +1,20 @@
 import BaseElement from '../utils/baseElement.js';
-import { redirectTo } from '../utils/history.js';
 
 import '../components/searchInput/index.js';
 
 class Home extends BaseElement {
-  goSomewhere() {
-    redirectTo('/jpt');
+  constructor() {
+    super();
+
+    this.search = this.search.bind(this);
+  }
+
+  search(value) {
+    console.log(value);
+  }
+
+  handleReturn(value) {
+    console.log('enter!', value);
   }
 
   render() {
@@ -19,7 +28,11 @@ class Home extends BaseElement {
       </style>
       <div class="wrapper">
         <h1>Vocab!</h1>
-        <v-search-input></v-search-input>
+        <v-search-input
+          name="text"
+          handleType=${this.search}
+          handleReturn=${this.handleReturn}
+        ></v-search-input>
       </div>
     `;
   }
