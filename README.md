@@ -27,7 +27,7 @@ without a `package.json`.
 
 - [x] Note down words by typing them down
 - [x] Search for words in the collection
-- [ ] [WIP] Offline access
+- [x] Offline access
 - [ ] Fetch meaning and example usages automatically
 - [ ] Extract collection
 - [ ] Import collection
