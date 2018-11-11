@@ -8,6 +8,7 @@ class Dictionary extends Model {
     this.initList();
 
     this.addWord = this.addWord.bind(this);
+    this.initList = this.initList.bind(this);
   }
 
   initList() {
