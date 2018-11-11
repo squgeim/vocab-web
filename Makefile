@@ -1,5 +1,5 @@
 format:
 	prettier --single-quote --trailing-comma es5 --write "src/**/*.js"
 
-local:
+serve:
 	python2 -m SimpleHTTPServer
