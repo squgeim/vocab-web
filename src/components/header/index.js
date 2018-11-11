@@ -22,7 +22,7 @@ class Header extends BaseElement {
           width: 100%;
           background: #004d40;
           color: #fff;
-          padding: 20px;
+          padding: 20px 0;
         }
       </style>
       <v-search-input
