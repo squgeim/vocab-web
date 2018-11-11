@@ -36,12 +36,9 @@ class Dictionary extends Model {
 
   addWord(word) {
     this.dict
-      .setItem(
-        word.toLowerCase(),
-        {
-          word: word,
-        },
-      )
+      .setItem(word.toLowerCase(), {
+        word: word,
+      })
       .then(this.initList);
   }
 

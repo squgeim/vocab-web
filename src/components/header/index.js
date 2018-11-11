@@ -34,4 +34,4 @@ class Header extends BaseElement {
   }
 }
 
-customElements.define('v-header', Header)
+customElements.define('v-header', Header);
