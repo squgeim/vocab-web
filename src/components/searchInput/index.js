@@ -52,18 +52,23 @@ class SearchInput extends BaseElement {
           width: 100%;
           line-height: 50px;
           height: 50px;
-          background: #fff;
+          background: rgba(255,255,255,0.8);
           padding: 0 10px;
-          box-shadow: #ccc 5px 5px 30px;
+          box-shadow: #00251a 1px 1px 2px;
           border: none;
           font-family: inherit;
           font-size: inherit;
+          transition: all 500ms;
+        }
+        .input:focus {
+          background: #fff;
         }
       </style>
 
       <input
         type="text"
         class="input"
+        autofocus="true"
         onkeyup=${this.handleKeyUp}
         placeholder=${`Type something. Maybe, ${this.placeholderWord}?`}
       ></input>
