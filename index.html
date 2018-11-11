@@ -27,7 +27,7 @@
       if ('serviceWorker' in navigator) {
         navigator
           .serviceWorker
-          .register('src/sw.js')
+          .register('./sw.js')
           .catch(err => {
             console.warn(
               'Could not register ServiceWorker. The app will not work offline.'
