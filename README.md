@@ -50,13 +50,14 @@ Think very hard before considering adding a library--do you really need it? Or
 can you whip something up yourself?
 
 Here's the breakdown of how things are:
-1. Use [unpkg](https://unpkg.com) if there is something really important you need
-from npm.
-2. Use `make` for lint, formating, build server, etc. (If you are on Windows,
+- Uses [unpkg](https://unpkg.com) to use some important libraries from npm.
+- Uses `make` for lint, formating, build server, etc. (If you are on Windows,
 please contribute how to make `make` work.)
-2. Use Web Components with ShadowDOM to build all the components. There is a base class you should extend.
-3. Use in-component style for all css. You'll most definitely never need to use
+- Uses Web Components with ShadowDOM to build all the components.
+- Uses [hyperHTML](https://github.com/WebReflection/hyperHTML) to write html and handle DOM changes.
+- Uses in-component style for all css. You'll most definitely never need to use
 a global css rule. Reuse components, not css.
+- Uses indexDB (via [localforage](https://github.com/localForage/localForage)) to store collection on the browser.
 
 ### Application Architecture
 
