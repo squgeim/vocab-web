@@ -7,7 +7,7 @@ class WordList extends BaseElement {
   }
 
   get wordList() {
-    return this._words ? this._words.map(w => `<li>${w.word}</li>`) : [];
+    return this._words ? this._words.map(w => `<li>${w}</li>`) : [];
   }
 
   render() {

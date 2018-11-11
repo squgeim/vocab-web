@@ -4,7 +4,7 @@ class Dictionary extends Model {
   constructor(storage, ...args) {
     super(...args);
 
-    this.storage = storage;
+    this.dict = storage;
     this.initList();
 
     this.addWord = this.addWord.bind(this);
@@ -13,8 +13,8 @@ class Dictionary extends Model {
   initList() {
     this._isFetchingList = true;
     this._hasErrored = false;
-    this.dictionary = this.storage
-      .getItem('dictionary')
+    this.dictionary = this.dict
+      .keys()
       .then(list => {
         this.syncDictionary = list;
       })
@@ -28,22 +28,20 @@ class Dictionary extends Model {
       });
   }
 
-  setActiveQuery(word) {
+  setActiveQuery(word = '') {
     this._activeQuery = word.toLowerCase();
     this.notifySubscribers();
   }
 
   addWord(word) {
-    this.storage
-      .setItem('dictionary', [
-        ...this.syncDictionary,
+    this.dict
+      .setItem(
+        word.toLowerCase(),
         {
           word: word,
         },
-      ])
-      .then(dict => {
-        this.syncDictionary = dict;
-      });
+      )
+      .then(this.initList);
   }
 
   set syncDictionary(val) {
@@ -58,7 +56,7 @@ class Dictionary extends Model {
   get list() {
     return this._activeQuery
       ? this.syncDictionary.filter(
-          w => w.word.toLowerCase().indexOf(this._activeQuery) > -1
+          w => w.toLowerCase().indexOf(this._activeQuery) > -1
         )
       : this.syncDictionary;
   }
@@ -66,6 +64,8 @@ class Dictionary extends Model {
 
 const store = window.localforage.createInstance({
   name: 'vocab-dictionary',
+  storeName: 'dictionary',
+  version: 3,
 });
 
 export default new Dictionary(store);
