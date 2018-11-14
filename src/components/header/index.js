@@ -20,9 +20,9 @@ class Header extends BaseElement {
         :host {
           display: flex;
           width: 100%;
-          background: #004d40;
-          color: #fff;
+          background: #fff;
           padding: 20px 0;
+          box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3),0 2px 6px 2px rgba(60,64,67,0.15);
         }
       </style>
       <v-search-input

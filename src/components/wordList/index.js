@@ -20,15 +20,17 @@ class WordList extends BaseElement {
         ul li {
           display: inline-block;
           line-height: 25px;
-          background: #f5f5f6;
+          background: #fff;
           float: left;
           margin: 10px;
           padding: 10px 20px;
           cursor: pointer;
           transition: box-shadow 200ms;
+          border: 1px solid #dadce0;
+          border-radius: 3px;
         }
         ul li:hover {
-          box-shadow: #00251a 0px 0px 1px;
+          background: #f8f9fa;
         }
       </style>
       <ul>

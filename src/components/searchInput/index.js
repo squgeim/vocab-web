@@ -52,16 +52,16 @@ class SearchInput extends BaseElement {
           width: 100%;
           line-height: 50px;
           height: 50px;
-          background: rgba(255,255,255,0.8);
-          padding: 0 10px;
-          box-shadow: #00251a 1px 1px 2px;
+          color: #80868b;
+          background: #f7f7f7;
+          padding: 0 50px;
           border: none;
           font-family: inherit;
           font-size: inherit;
           transition: all 500ms;
         }
         .input:focus {
-          background: #fff;
+          color: #202124;
         }
       </style>
 
