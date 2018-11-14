@@ -1,4 +1,4 @@
-const VERSION = 2;
+const VERSION = 3;
 const FILES = [
   'src/utils/misc.js',
   'src/utils/history.js',
