@@ -24,7 +24,20 @@ class Header extends BaseElement {
           padding: 20px 0;
           box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3),0 2px 6px 2px rgba(60,64,67,0.15);
         }
+
+        .logo {
+          font-family: "PT Sans", sans-serif;
+          font-size: 24px;
+          margin-left: 50px;
+          display: flex;
+          align-items: center;
+          width: 150px;
+          cursor: pointer;
+        }
       </style>
+      <div class="logo">
+        vocab
+      </div>
       <v-search-input
         name="text"
         handleType=${this.search}

@@ -45,8 +45,8 @@ class SearchInput extends BaseElement {
       <style>
         :host {
           display: block;
-          width: 50%;
-          margin: 0 auto;
+          flex: 1;
+          max-width: 500px;
         }
         .input {
           width: 100%;
